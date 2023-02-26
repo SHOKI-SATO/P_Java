@@ -101,3 +101,7 @@
 　//記述が長くなってしまうが、BigDecimalを使うと正しく計算ができる
 　　jshell> BigDecimal.valueOf(579).multiply(BigDecimal.valueOf(0.05))
 　　$59 ==> 28.95
+
+●デバッグ
+　確認したい行にブレークポイントを設定し、プログラムを右クリック>デバッガを起動
+　F8キーでステップ実行

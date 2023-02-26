@@ -17,6 +17,15 @@ public class WebClient1 {
              var pw = new PrintWriter(soc.getOutputStream());
              var isr = new InputStreamReader(soc.getInputStream());
              var bur = new BufferedReader(isr)) {
+
+
+            pw.println("GET /index.html HTTP/1.1");
+            pw.println("Host: " + domain);
+            pw.println();
+            pw.flush();
+            bur.lines()
+                    .limit(18)
+                    .forEach(System.out::println);
         }
     }
 }
