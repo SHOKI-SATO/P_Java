@@ -1,3 +1,4 @@
+// パッケージ名は全て小文字（サブパッケージがある場合は「.」で区切る）
 package projava;
 
 import javax.swing.*;
@@ -7,6 +8,7 @@ public class SampleForm {
     public static void main(String[] args) {
         var frame = new JFrame("test");
         frame.setSize(600, 400);
+        // ウインドウが閉じた時にプログラムを終わらせる処理(指定を忘れると、ウインドウが閉じてもプログラムが終わらない)
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         var text1 = new JTextField();

@@ -12,7 +12,7 @@ public class WebServer {
         var server = new ServerSocket(8880);
         //何度もリクエストを受け付けるために、処理全体を無限ループで囲む（for文に何も指定しない）
         for(;;){
-            //aceptメソッドで通信を待ち受ける
+            //acceptメソッドで通信を待ち受ける
             //クライアントから接続を受け取ったら、その接続を管理するSocketからBufferedReaderとPrintWriterを得る
             //これらが確実にcloseされるよう、try-with-resources構文を使用
             try(Socket soc = server.accept();
@@ -21,12 +21,14 @@ public class WebServer {
             var w = new PrintWriter(soc.getOutputStream()))
             {
                 System.out.println("connected from " + soc.getInetAddress());
+
                 //接続を受け取ったらリクエストヘッダーを読み込む
-                //条件が成り立つbStreamを処理するtakeWhileメソッドを使用
-                // リクエストヘッダー終了の合図である空行がク来るまで出力処理を行う
+                //条件が成り立つ間Streamを処理するtakeWhileメソッドを使用
+                // リクエストヘッダー終了の合図である空行が来るまで出力処理を行う
                 bur.lines()
                         .takeWhile(line -> !line.isEmpty())
                         .forEach(System.out::println);
+
                 //HTTPではレスポンスヘッダー、データ本体の間に改行コードが2つ必要
                 //レスポンスとしてはステータスコードとして200を送って、Content-Typeヘッダーにtext/htmlを指定
                 //レスポンスのhtmlとして＜html＞以降を返却
@@ -36,12 +38,12 @@ public class WebServer {
             Content-Type: text/html
             
             <html><head><title>Hello</title></head>
-            <body><h1>Hello<//h1>It works!</body></html>
+            <body><h1>Hello</h1>It works!</body></html>
             """);
 
                 //http://localHost:8880にアクセスすると、表示されている
                 //　→実行結果には、ブラウザから送られてきたリクエストヘッダーが表示される
-                //　※一度実行するこ終了しないので、動作確認が終わったら停止ボタンにより停止する
+                //　※一度実行すると終了しないので、動作確認が終わったら停止ボタンにより停止する
             }
         }
     }

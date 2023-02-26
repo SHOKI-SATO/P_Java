@@ -9,6 +9,6 @@ public class SwichSample {
             case 4 -> System.out.println("four");
             case 5 -> System.out.println("five");
             default -> System.out.println("noting");
-        };
+        }
     }
 }

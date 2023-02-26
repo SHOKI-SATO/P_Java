@@ -3,6 +3,9 @@ import java.io.IOException;
 
 public class Maze {
     public static void main(String[] args) throws IOException {
+
+        System.out.println("操作キー：A←,W↑,S→,Z↓");
+
         record Position(int x, int y){}
         int[][]map = {
                 {1, 1, 1, 1, 1, 1},
@@ -40,6 +43,7 @@ public class Maze {
                 case 'z' -> new Position(current.x(), current.y()+1);
                 default -> current;
             };
+
             if (map[next.y()][next.x()] == 0){
                 current = next;
             }

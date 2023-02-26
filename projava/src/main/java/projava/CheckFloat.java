@@ -5,7 +5,7 @@ public class CheckFloat {
     //状態を表す値をenumとして用意
     //　→enumは、プログラムで利用する値をまとめて扱えるようにする型
     //FRACは少数部を表すFractionの略
-    //START＝整数の先頭、ZERO＝0、INT＝整数、FRAC_START＝少数の先頭。FRAC＝少数の途中
+    //START＝整数の先頭、INT＝整数、FRAC_START＝少数の先頭。FRAC＝少数の途中、ZERO＝0、
     enum FloatState {
         START, INT, FRAC_START, FRAC, ZERO
     }
