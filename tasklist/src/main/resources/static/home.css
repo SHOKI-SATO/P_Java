@@ -1,0 +1,41 @@
+/* 共通項目 */
+body {
+    margin : 30px;
+    color : #283655;
+    }
+    border : 1px solid;
+    }
+hidden{
+    display.none;
+    }
+
+/* タスク入力フォーム*/
+.task_form{
+    padding:0px 10px 10px 10px;
+    border : 1px solid #4D538D;
+}
+.task_form form{
+    display : grid;
+    grid-template-columns : 100px 1fr;
+}
+.task_form input[type = "date"], select{
+    width = "150px";
+}
+
+/* タスク一覧 */
+.tasklist table{
+    width : 100%;
+    border : 1px solid;
+    border-collapse : coll1;
+}
+
+/* タスク更新ダイアログ（第18勝のサンプルで使用） */
+#updateDialog{
+    display : none;
+    background-colo1 : #FFFFFF;
+    border : 2px double;
+    width : 500px;
+    position : fixed;
+    top : 12opx;
+    z-index : 9999;
+}
